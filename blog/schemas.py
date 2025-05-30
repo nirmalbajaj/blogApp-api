@@ -7,7 +7,7 @@ class BlogBase(BaseModel):
 
 class Blog(BlogBase):
     class Config():
-        orm_mode = True
+        from_attributes = True
         
 class User(BaseModel):
     name: str
@@ -19,11 +19,11 @@ class ShowUser(BaseModel):
     email: str
     blogs: List[Blog] = [   ]
     class Config():
-        orm_mode = True
+        from_attributes = True
         
 class ShowBlog(BaseModel):
     title: str
     body: str
     creator: ShowUser
     class Config():
-        orm_mode = True
+        from_attributes = True
